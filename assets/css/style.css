@@ -1,12 +1,18 @@
 body{
+    margin:0;
     background-color:#D0D0D0;
 }
-#footer, #menu, #header{
+#footer, #header{
     text-align: center;
     color: white;
     background-color: #111111;
-    padding:5px;
+    padding:5px 0px;
 }
+#header{
+    height:120px;
+    margin-bottom: 30px;
+}
+
 .info{
     display: none;
 }
@@ -15,6 +21,17 @@ body{
     margin: 10px;
     padding: 10px;
     box-shadow: 5px 5px 5px #888888;
+}
+#menu{
+    margin-right: 10px;
+    text-align: center;
+    color: white;
+    background-color: #111111;
+    width: 100%;
+    z-index: 3;
+    position: fixed;
+    top: 85px;
+    padding: 0px;
 }
 #menu>nav>ul{
     margin: 5px;
@@ -29,9 +46,11 @@ body{
     color: white;
     text-decoration: none;
 }
+#main{
+    padding: 0px 10px;
+}
 #log{
-    text-align: center;
-    width:400px;
+    width:80%;
     padding: 10px;
     margin: 10px;
     background-color: white;
