@@ -5,11 +5,3 @@
 
     <p><a href="<?php echo site_url('news/') ?>">Volver</a></p>
 </div>
-<div class="article">
-
-    <?php
-    $data['id'] = $news_item['id'];
-    $this->load->view('news/viewComments', $data);
-    ?>
-
-</div>

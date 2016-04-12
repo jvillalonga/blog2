@@ -7,7 +7,7 @@ class Articles_model extends CI_Model {
         $this->load->database();
     }
 //get de todos los articulos
-    public function get_news($slug = FALSE) {
+    public function get_articles($slug = FALSE) {
         if ($slug === FALSE) {
             $this->db->order_by('id', 'DESC');
             $query = $this->db->get('articulos');
@@ -18,13 +18,13 @@ class Articles_model extends CI_Model {
         return $query->row_array();
     }
 //geter de los últimos 5 articulos
-    public function get_last_news() {
+    public function get_last_articles() {
         $this->db->order_by('id', 'DESC');
         $query = $this->db->get('articulos', 5);
         return $query->result_array();
     }
 //seter de articulo
-    public function set_news() {
+    public function set_article() {
         $this->load->helper('url');
 
         $slug = url_title($this->input->post('title'), 'dash', TRUE);
@@ -43,7 +43,7 @@ class Articles_model extends CI_Model {
         return $this->db->insert('articulos', $data);
     }
 //eliminar articulo
-    public function del_news($id) {
+    public function del_article($id) {
         $this->db->where('id', $id);
         return $this->db->delete('articulos');
     }

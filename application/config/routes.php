@@ -6,6 +6,7 @@ $route['news/borrarComment'] = 'news/borrarComment';
 $route['news/logout'] = 'news/logout';
 $route['news/login'] = 'news/login';
 $route['news/create'] = 'news/create';
+$route['news/register'] = 'news/register';
 $route['news/borrar'] = 'news/borrar';
 $route['news/allNews'] = 'news/allNews';
 $route['news/(:any)'] = 'news/view/$1';

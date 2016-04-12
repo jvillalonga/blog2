@@ -12,7 +12,7 @@ class News extends CI_Controller {
     }
 
     public function index() {
-        $data['news'] = $this->articles_model->get_last_news();
+        $data['news'] = $this->articles_model->get_last_articles();
         $data['title'] = 'Inicio';
 
         $this->load->view('templates/header', $data);
@@ -23,7 +23,7 @@ class News extends CI_Controller {
 
 //funcion para mostrar todos los articulos
     public function allNews() {
-        $data['news'] = $this->articles_model->get_news();
+        $data['news'] = $this->articles_model->get_articles();
         $data['title'] = 'Blog';
 
         $this->load->view('templates/header', $data);
@@ -34,7 +34,7 @@ class News extends CI_Controller {
 
 //funcion para mostrar articulos
     public function view($slug = NULL) {
-        $data['news_item'] = $this->articles_model->get_news($slug);
+        $data['news_item'] = $this->articles_model->get_articles($slug);
 
         if (empty($data['news_item'])) {
             show_404();
@@ -45,6 +45,7 @@ class News extends CI_Controller {
 
         $this->load->view('templates/header', $data);
         $this->load->view('news/view', $data);
+        $this->load->view('news/viewComments', $data);
         $this->load->view('templates/deviceInfo');
         $this->load->view('templates/footer');
     }
@@ -64,15 +65,38 @@ class News extends CI_Controller {
             $this->load->view('news/create');
             $this->load->view('templates/footer');
         } else {
-            $this->articles_model->set_news();
+            $this->articles_model->set_article();
             $this->load->view('news/success');
+        }
+    }
+
+    public function register() {
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $data['title'] = 'Registro';
+
+        $this->form_validation->set_rules('user', 'User', 'required');
+        $this->form_validation->set_rules('pass', 'Password', 'required');
+
+        if ($this->form_validation->run() === FALSE) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('news/register');
+            $this->load->view('templates/footer');
+        } else {
+            if ($this->users_model->get_userName() === 1) {
+                $this->load->view('news/logError');
+            }else{
+                $this->users_model->set_user();
+                $this->load->view('news/success');
+            }
         }
     }
 
 //funcion para borrar articulo
     public function borrar() {
         $this->load->helper('form');
-        $this->articles_model->del_news($this->input->post('id'));
+        $this->articles_model->del_article($this->input->post('id'));
 
         $this->load->view('news/success');
     }
