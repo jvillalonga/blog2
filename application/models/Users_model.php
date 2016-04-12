@@ -9,6 +9,15 @@ class Users_model extends CI_Model {
     public function get_user() {
 
         $user = $this->input->post('user');
+
+        $this->db->where('user', $user);
+        $query = $this->db->get('users');
+        return $query->result_array();
+    }
+
+    public function get_count_user() {
+
+        $user = $this->input->post('user');
         $pass = $this->input->post('pass');
 
         $this->db->count_all_results('users');
@@ -35,11 +44,11 @@ class Users_model extends CI_Model {
             return $this->db->insert('users', $data);
         }
     }
-    
+
     //comprueba si existe el usuario
     public function get_userName() {
         $user = $this->input->post('user');
-        
+
         $this->db->count_all_results('users');
         $this->db->where('user', $user);
         $this->db->from('users');

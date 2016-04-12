@@ -23,7 +23,7 @@
                     <td><a href="<?php echo site_url('news/' . $news_item['slug']); ?>">Leer más</a></td>
                     <td>
                         <!--formulario borrar articulor-->
-                            <?php if (isset($_SESSION["log"]) && $_SESSION["log"] == 'ok') { ?>
+                            <?php if ($this->session->log && $this->session->rol == 1) { ?>
                             <form action="borrar" method="post">
                                 <input type="hidden" name="id" value="<?php echo $news_item['id'] ?>"/>
                                 <input type = "submit" name = "submit" value = "Borrar artículo" />

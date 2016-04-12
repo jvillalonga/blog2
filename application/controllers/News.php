@@ -118,12 +118,15 @@ class News extends CI_Controller {
             $this->load->view('news/login');
             $this->load->view('templates/footer');
         } else {
-            if ($this->users_model->get_user() === 1) {
+            if ($this->users_model->get_count_user() === 1) {
+                $users = $this->users_model->get_user();
                 $_SESSION["log"] = 'ok';
-                $_SESSION["user"] = $this->input->post('user');
+                foreach ($users as $user):
+                    $_SESSION["user"] = $user['user'];
+                    $_SESSION["rol"] = $user['admin'];
+                endforeach;
                 $this->load->view('news/logSuccess');
-            }
-            if ($this->users_model->get_user() === 0) {
+            } else {
                 $this->load->view('news/logError');
             }
         }

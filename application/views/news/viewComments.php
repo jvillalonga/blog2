@@ -13,7 +13,7 @@
             <p>
                 <?php echo $comments_item['text']; ?>
             </p>
-            <?php if (isset($this->session->log) && $this->session->log == 'ok') { ?>
+            <?php if (isset($this->session->log) && $this->session->rol == 1) { ?>
                 <form action="borrarComment" method="post">
                     <input type="hidden" name="id" value="<?php echo $comments_item['id'] ?>"/>
                     <input type = "submit" name = "submit" value = "Borrar comentario" />
