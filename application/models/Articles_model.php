@@ -1,6 +1,6 @@
 <?php
 
-class News_model extends CI_Model {
+class Articles_model extends CI_Model {
 
     public function __construct() {
         $this->load->helper('date');
@@ -48,18 +48,6 @@ class News_model extends CI_Model {
         return $this->db->delete('articulos');
     }
 
-    public function get_user() {
-
-        $user = $this->input->post('user');
-        $pass = $this->input->post('pass');
-
-        $this->db->count_all_results('users');
-        $this->db->where('user', $user);
-        $this->db->where('pass', MD5($pass));
-        $this->db->from('users');
-        $query = $this->db->count_all_results();
-        return $query;
-    }
 //seter de comentario
     public function set_comments() {
         $this->load->helper('url');

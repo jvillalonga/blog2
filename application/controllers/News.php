@@ -4,14 +4,15 @@ class News extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('news_model');
+        $this->load->model('articles_model');
+        $this->load->model('users_model');
         $this->load->helper('url_helper');
         $this->load->helper('date');
         $this->load->library('session');
     }
 
     public function index() {
-        $data['news'] = $this->news_model->get_last_news();
+        $data['news'] = $this->articles_model->get_last_news();
         $data['title'] = 'Inicio';
 
         $this->load->view('templates/header', $data);
@@ -22,7 +23,7 @@ class News extends CI_Controller {
 
 //funcion para mostrar todos los articulos
     public function allNews() {
-        $data['news'] = $this->news_model->get_news();
+        $data['news'] = $this->articles_model->get_news();
         $data['title'] = 'Blog';
 
         $this->load->view('templates/header', $data);
@@ -33,7 +34,7 @@ class News extends CI_Controller {
 
 //funcion para mostrar articulos
     public function view($slug = NULL) {
-        $data['news_item'] = $this->news_model->get_news($slug);
+        $data['news_item'] = $this->articles_model->get_news($slug);
 
         if (empty($data['news_item'])) {
             show_404();
@@ -63,7 +64,7 @@ class News extends CI_Controller {
             $this->load->view('news/create');
             $this->load->view('templates/footer');
         } else {
-            $this->news_model->set_news();
+            $this->articles_model->set_news();
             $this->load->view('news/success');
         }
     }
@@ -71,7 +72,7 @@ class News extends CI_Controller {
 //funcion para borrar articulo
     public function borrar() {
         $this->load->helper('form');
-        $this->news_model->del_news($this->input->post('id'));
+        $this->articles_model->del_news($this->input->post('id'));
 
         $this->load->view('news/success');
     }
@@ -91,12 +92,12 @@ class News extends CI_Controller {
             $this->load->view('news/login');
             $this->load->view('templates/footer');
         } else {
-            if ($this->news_model->get_user() === 1) {
+            if ($this->users_model->get_user() === 1) {
                 $_SESSION["log"] = 'ok';
                 $_SESSION["user"] = $this->input->post('user');
                 $this->load->view('news/logSuccess');
             }
-            if ($this->news_model->get_user() === 0) {
+            if ($this->users_model->get_user() === 0) {
                 $this->load->view('news/logError');
             }
         }
@@ -105,7 +106,7 @@ class News extends CI_Controller {
 //funcion para crear comentario
     public function creaComment() {
 
-        $this->news_model->set_comments();
+        $this->articles_model->set_comments();
         $this->load->view('news/success');
     }
 
@@ -114,7 +115,7 @@ class News extends CI_Controller {
     public function borrarComment() {
         $id = $this->input->post('id');
         $this->load->helper('form');
-        $this->news_model->del_comments($id);
+        $this->articles_model->del_comments($id);
 
         $this->load->view('news/success');
     }
