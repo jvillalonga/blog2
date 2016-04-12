@@ -5,6 +5,7 @@ class News extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('articles_model');
+        $this->load->model('comments_model');
         $this->load->model('users_model');
         $this->load->helper('url_helper');
         $this->load->helper('date');
@@ -70,6 +71,15 @@ class News extends CI_Controller {
         }
     }
 
+//funcion para borrar articulo
+    public function borrar() {
+        $this->load->helper('form');
+        $this->articles_model->del_article($this->input->post('id'));
+
+        $this->load->view('news/success');
+    }
+
+//funcion para registrar usuarios
     public function register() {
         $this->load->helper('form');
         $this->load->library('form_validation');
@@ -86,19 +96,11 @@ class News extends CI_Controller {
         } else {
             if ($this->users_model->get_userName() === 1) {
                 $this->load->view('news/logError');
-            }else{
+            } else {
                 $this->users_model->set_user();
                 $this->load->view('news/success');
             }
         }
-    }
-
-//funcion para borrar articulo
-    public function borrar() {
-        $this->load->helper('form');
-        $this->articles_model->del_article($this->input->post('id'));
-
-        $this->load->view('news/success');
     }
 
 //comprobacion de login
@@ -130,7 +132,7 @@ class News extends CI_Controller {
 //funcion para crear comentario
     public function creaComment() {
 
-        $this->articles_model->set_comments();
+        $this->comments_model->set_comments();
         $this->load->view('news/success');
     }
 
@@ -139,7 +141,7 @@ class News extends CI_Controller {
     public function borrarComment() {
         $id = $this->input->post('id');
         $this->load->helper('form');
-        $this->articles_model->del_comments($id);
+        $this->comments_model->del_comments($id);
 
         $this->load->view('news/success');
     }

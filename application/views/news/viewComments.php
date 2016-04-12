@@ -2,7 +2,7 @@
 <h3>Comentarios</h3>
 <div class="article">
     <?php
-    $comments = $this->articles_model->get_comments($id);
+    $comments = $this->comments_model->get_comments($id);
 
 
     foreach ($comments as $comments_item):
