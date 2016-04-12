@@ -37,7 +37,8 @@
                                 echo '">Logout</a>';
                             } else {
                                 echo '<a href="' . site_url('news/login');
-                                echo '">Login</a>';
+                                echo '">Login</a>/<a href="' . site_url('news/register');
+                                echo '">Registrarse</a>';
                             }
                             ?>
                         </li>

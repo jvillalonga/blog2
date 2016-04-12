@@ -7,7 +7,7 @@
 
     <input type="input" name="autor" placeholder="Autor" value="<?php
         if (isset($this->session->log) && $this->session->log == 'ok') {
-            echo $this->session->log;
+            echo $this->session->user;
         }
         ?>"/><br />
 
