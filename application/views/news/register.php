@@ -3,12 +3,12 @@
 
 <?php echo validation_errors(); ?>
 <div id="log">
-<?php echo form_open('news/register'); ?>
+  <?php echo form_open('news/register'); ?>
 
-<input type="input" name="user" placeholder="User" autofocus/><br />
-<input type="password" name="pass" placeholder="Password"/><br />
+  <input type="input" name="user" placeholder="User" autofocus/><br />
+  <input type="password" name="pass" placeholder="Password"/><br />
 
-<input type="submit" name="submit" value="Registrarse" />
+  <input type="submit" name="submit" value="Registrarse" />
 
 </form>
 </div>

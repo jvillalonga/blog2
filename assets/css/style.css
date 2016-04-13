@@ -1,80 +1,80 @@
 body{
-    margin:0;
-    background-color:#D0D0D0;
+  margin:0;
+  background-color:#D0D0D0;
 }
 #footer, #header{
-    text-align: center;
-    color: white;
-    background-color: #111111;
-    padding:5px 0px;
+  text-align: center;
+  color: white;
+  background-color: #111111;
+  padding:5px 0px;
 }
 #header{
-    height:120px;
-    margin-bottom: 30px;
+  height:120px;
+  margin-bottom: 30px;
 }
 
 .info{
-    display: none;
+  display: none;
 }
 .article {
-    background-color:#FFFFFF;
-    margin: 10px;
-    padding: 10px;
-    box-shadow: 5px 5px 5px #888888;
+  background-color:#FFFFFF;
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 5px 5px 5px #888888;
 }
 #menu{
-    margin-right: 10px;
-    text-align: center;
-    color: white;
-    background-color: #111111;
-    width: 100%;
-    z-index: 3;
-    position: fixed;
-    top: 85px;
-    padding: 0px;
+  margin-right: 10px;
+  text-align: center;
+  color: white;
+  background-color: #111111;
+  width: 100%;
+  z-index: 3;
+  position: fixed;
+  top: 85px;
+  padding: 0px;
 }
 #menu>nav>ul{
-    margin: 5px;
-    padding: 0px;
+  margin: 5px;
+  padding: 0px;
 }
 #menu>nav>ul>li {
-    list-style: none;
-    display: inline;
+  list-style: none;
+  display: inline;
 }
 #menu>nav>ul>li>a {
-    margin: 10px;
-    color: white;
-    text-decoration: none;
+  margin: 10px;
+  color: white;
+  text-decoration: none;
 }
 #main{
-    padding: 0px 10px;
+  padding: 0px 10px;
 }
 #log{
-    width:80%;
-    padding: 10px;
-    margin: 10px;
-    background-color: white;
-    box-shadow: 5px 5px 5px #888888;
+  width:80%;
+  padding: 10px;
+  margin: 10px;
+  background-color: white;
+  box-shadow: 5px 5px 5px #888888;
 }
 .infoArt{
-    color: grey;
-    font-size: small;
+  color: grey;
+  font-size: small;
 }
 .comment{
-    padding-left:10px;
-    padding-right:10px;
-    border-top: 1px solid #696969;
+  padding-left:10px;
+  padding-right:10px;
+  border-top: 1px solid #696969;
 }
 #deviceInfo{
-    color:#343131;
-    background-color:#FFFFFF;
-    margin: 15px;
-    padding: 10px;
-    box-shadow: 5px 5px 5px #888888;
+  color:#343131;
+  background-color:#FFFFFF;
+  margin: 15px;
+  padding: 10px;
+  box-shadow: 5px 5px 5px #888888;
 }
 h3{
-    margin: 2px;
+  margin: 2px;
 }
 .centered{
-    text-align: center;
+  text-align: center;
 }
