@@ -19,7 +19,7 @@
           <td><?php echo $news_item['title']; ?></td>
           <td><?php echo $news_item['fecha']; ?></td>
           <td><?php echo $news_item['autor']; ?></td>
-          <td><?php echo substr($news_item['text'],0,20).' ...'; ?></td>
+          <td><?php echo substr($news_item['text'],0,25).' ...'; ?></td>
           <td><a href="<?php echo site_url('news/' . $news_item['slug']); ?>">Leer más</a></td>
           <td>
             <?php if (isset($_SESSION["log"]) && $_SESSION["log"] == 'ok') { ?>

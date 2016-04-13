@@ -33,12 +33,15 @@ class Articles_model extends CI_Model {
         } else {
             $user = 'anonimo';
         }
+        
+        $text = stripslashes(nl2br($this->input->post('text')));
+
         $data = array(
             'title' => $this->input->post('title'),
             'slug' => $slug,
             'autor' => $user,
             'fecha' => standard_date('DATE_W3C', now()),
-            'text' => $this->input->post('text')
+            'text' => $text
         );
         return $this->db->insert('articulos', $data);
     }

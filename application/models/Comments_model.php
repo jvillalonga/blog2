@@ -16,11 +16,15 @@ class Comments_model extends CI_Model {
         } else {
             $user = 'anonimo';
         }
+
+        //$text = nl2br(htmlentities($this->input->post('text'), ENT_QUOTES, 'UTF-8'));
+        $text = stripslashes(nl2br($this->input->post('text')));
+
         $data = array(
             'idArticulo' => $this->input->post('idArt'),
             'user' => $user,
             'fecha' => $date,
-            'text' => $this->input->post('text')
+            'text' => $text
         );
 
         return $this->db->insert('comentarios', $data);
