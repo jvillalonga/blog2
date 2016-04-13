@@ -11,6 +11,7 @@
 </head>
 <body>
 <!-- header -->
+<div id="content">
   <div id="header">
     <div>
       <h1>Blog</h1>

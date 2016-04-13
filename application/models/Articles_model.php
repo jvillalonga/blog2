@@ -28,12 +28,13 @@ class Articles_model extends CI_Model {
         $this->load->helper('url');
 
         $slug = url_title($this->input->post('title'), 'dash', TRUE);
+        
         if ($this->input->post('autor') !== '') {
             $user = $this->input->post('autor');
         } else {
             $user = 'anonimo';
         }
-        
+
         $text = stripslashes(nl2br($this->input->post('text')));
 
         $data = array(
