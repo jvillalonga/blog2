@@ -10,24 +10,24 @@ $(document).ready(function () {
     $('.comment').slideDown();
     $('#deviceInfo').slideDown();
 
-    
 
-    
+
+
 });
 
 $(window).bind('scroll', function () {
-        parallaxScroll();
-    });
-    
+    parallaxScroll();
+});
+
 function parallaxScroll() {
-        var scrolled = $(window).scrollTop();
-        $('#menu').css('top', maxTop() + 'px');
-        function maxTop() {
-            if ((85 - (scrolled) * .80) > 0) {
-                return (85 - (scrolled) * .80);
-            } else {
-                return 0;
-            }
+    var scrolled = $(window).scrollTop();
+    $('#menu').css('top', maxTop() + 'px');
+    function maxTop() {
+        if ((85 - (scrolled) * .75) > 0) {
+            return (85 - (scrolled) * .75);
+        } else {
+            return 0;
         }
     }
+}
             
