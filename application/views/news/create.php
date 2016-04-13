@@ -2,7 +2,7 @@
 <h2><?php echo $title; ?></h2>
 
 <?php echo validation_errors(); ?>
-<div id="log">
+<div id="form">
   <?php echo form_open('news/create'); ?>
 
   <input type="input" name="autor" placeholder="Autor" value="<?php

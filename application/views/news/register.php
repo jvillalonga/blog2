@@ -2,7 +2,7 @@
 <h2><?php echo $title; ?></h2>
 
 <?php echo validation_errors(); ?>
-<div id="log">
+<div id="form">
   <?php echo form_open('news/register'); ?>
 
   <input type="input" name="user" placeholder="User" autofocus/><br />
