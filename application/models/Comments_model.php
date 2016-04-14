@@ -17,11 +17,6 @@ class Comments_model extends CI_Model {
       $user = 'anonimo';
     }
 
-    //$text = nl2br(htmlentities($this->input->post('text'), ENT_QUOTES, 'UTF-8'));
-    // $text = stripslashes(nl2br($this->input->post('text')));
-
-    // $t = ;
-    // $te =  ;
     $text = stripslashes(nl2br(trim( $this->input->post('text'))));
 
     $data = array(
