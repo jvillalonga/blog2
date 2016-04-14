@@ -6,7 +6,7 @@
       <input name="slug" type="hidden" value="<?php echo $news_item['slug']; ?>"/>
       <input type="input" name="user" placeholder="Autor" value="<?php
       if (isset($_SESSION["log"]) && $_SESSION["log"] == 'ok') {
-        echo $_SESSION["user"];
+        echo $_SESSION["user"] . '" readonly=""';
       }
       ?>"/><br />
       <textarea name="text" placeholder="Comentario" required></textarea><br />

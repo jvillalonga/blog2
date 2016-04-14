@@ -26,7 +26,7 @@
             <?php if ($this->session->log && $this->session->rol == 1) { ?>
               <form action="borrar" method="post">
                 <input type="hidden" name="id" value="<?php echo $news_item['id'] ?>"/>
-                <input type = "submit" name = "submit" value = "Borrar artículo" />
+                <input type = "submit" name = "submit" value = "Borrar" />
               </form>
             <?php } ?>
           </td>

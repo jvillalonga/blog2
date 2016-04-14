@@ -46,8 +46,8 @@
             <?php
             if (isset($this->session->log) && $this->session->log == 'ok') {
               echo '<li><a href="' . site_url('news/create') . '">Publicar artículo</a></li>';
-            }?>
-
+            }
+            ?>
             <li>
               <?php
               if (isset($this->session->log) && $this->session->log == 'ok') {

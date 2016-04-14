@@ -9,7 +9,7 @@
   if (isset($this->session->log) && $this->session->log == 'ok') {
     echo $this->session->user;
   }
-  ?>" disabled/><br />
+  ?>" readonly/><br />
 
   <input type="input" name="title" placeholder="Título" autofocus/><br />
 
