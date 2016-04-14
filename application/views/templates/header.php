@@ -10,11 +10,12 @@
     }
     ?>
   </title>
+<!-- js -->
   <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
   <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/main.js"></script>
   <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
-
+<!-- css -->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/style.css">
   <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
 </head>
@@ -25,14 +26,14 @@
       <div>
         <h1><a href="<?php echo site_url('news'); ?>">
           <div id="logo">
-             <img src="<?php echo base_url(); ?>assets/img/kitmaker_logo.png" alt="logo">
+            <img src="<?php echo base_url(); ?>assets/img/kitmaker_logo.png" alt="logo">
           </div>
           Blog</a>
         </h1>
         <p class="info">
           <?php
           if (isset($this->session->log) && $this->session->log == 'ok') {
-            echo 'Usuario: ' . $this->session->log;
+            echo 'Usuario: ' . $this->session->user;
           }
           ?>
         </p>
