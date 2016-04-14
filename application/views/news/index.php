@@ -2,7 +2,7 @@
 <h3>Artículos recientes</h3>
 <?php foreach ($news as $news_item): ?>
   <div class="article">
-    <h3><?php echo $news_item['title']; ?></h3>
+    <h2><?php echo $news_item['title']; ?></h2>
     <p class="infoArt"><?php echo $news_item['fecha']?>, por <?php echo $news_item['autor']; ?></p>
     <div class="main">
       <p>

@@ -25,7 +25,7 @@ class News extends CI_Controller {
   //funcion para mostrar todos los articulos
   public function allNews() {
     $data['news'] = $this->articles_model->get_articles();
-    $data['title'] = 'Blog';
+    $data['title'] = 'Todos los artículos';
 
     $this->load->view('templates/header', $data);
     $this->load->view('news/allNews');
@@ -107,23 +107,23 @@ class News extends CI_Controller {
   public function login() {
     $this->load->helper('form');
     $this->load->library('form_validation');
-
     $data['title'] = 'Log in';
-
     $this->form_validation->set_rules('user', 'User', 'required');
     $this->form_validation->set_rules('pass', 'Password', 'required');
-
     if ($this->form_validation->run() === FALSE) {
       $this->load->view('templates/header', $data);
       $this->load->view('news/login');
       $this->load->view('templates/footer');
     } else {
-      if ($this->users_model->get_user() === 1) {
+      if ($this->users_model->get_count_user() === 1) {
+        $users = $this->users_model->get_user();
         $_SESSION["log"] = 'ok';
-        $_SESSION["user"] = $this->input->post('user');
+        foreach ($users as $user):
+          $_SESSION["user"] = $user['user'];
+          $_SESSION["rol"] = $user['admin'];
+        endforeach;
         $this->load->view('news/logSuccess');
-      }
-      if ($this->users_model->get_user() === 0) {
+      } else {
         $this->load->view('news/logError');
       }
     }

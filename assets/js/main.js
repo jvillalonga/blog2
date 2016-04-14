@@ -27,11 +27,11 @@ function parallaxScroll() {
 
   function maxTop() {
 
-    if ((85 - (scrolled) * .75) > 0) {
-      return (85 - (scrolled) * .75);
+    if ((85 - (scrolled)) > 0) {
+      return (85 - (scrolled));
     } else {
       return 0;
     }
-    
+
   }
 }
