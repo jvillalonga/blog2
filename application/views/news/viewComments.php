@@ -14,7 +14,9 @@
       <div>
         <p class="infoArt">Autor: <?php echo $comments_item['user']; ?>,  <?php echo $comments_item['fecha']; ?></p>
         <p>
-          <?php echo $comments_item['text']; ?>
+          <?php $str = $comments_item['text'];
+           echo $str = parse_smileys($str, base_url('/assets/smileys/'));
+           ?>
         </p>
       </div>
       <?php if (isset($this->session->log) && $this->session->rol == 1) {  ?>

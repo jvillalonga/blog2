@@ -24,15 +24,12 @@ class Users_model extends CI_Model {
     $this->load->helper('url');
     $user = $this->input->post('user');
     $pass = $this->input->post('pass');
-    if ($this->users_model->get_userName($user) === 1) {
-      echo '<script language="javascript">alert("bad user");</script>';
-    } else {
-      $data = array(
-        'user' => $user,
-        'pass' => MD5($pass)
-      );
-      return $this->db->insert('users', $data);
-    }
+    $data = array(
+      'user' => $user,
+      'pass' => MD5($pass)
+    );
+    return $this->db->insert('users', $data);
+
   }
   //comprueba si existe el usuario
   public function get_userName() {

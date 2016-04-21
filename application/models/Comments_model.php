@@ -17,7 +17,8 @@ class Comments_model extends CI_Model {
       $user = 'anonimo';
     }
 
-    $text = stripslashes(nl2br(trim( $this->input->post('text'))));
+    $text = stripslashes(nl2br(trim( $this->input->post('comments'))));
+    //$string = $this->typography->nl2br_except_pre(trim( $this->input->post('text')));
 
     $data = array(
       'idArticulo' => $this->input->post('idArt'),

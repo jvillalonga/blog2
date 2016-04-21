@@ -27,8 +27,8 @@ function parallaxScroll() {
 
   function maxTop() {
 
-    if ((85 - (scrolled)) > 0) {
-      return (85 - (scrolled));
+    if ((85 - (scrolled) * .75) > 0) {
+      return (85 - (scrolled) * .75);
     } else {
       return 0;
     }

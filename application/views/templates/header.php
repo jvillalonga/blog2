@@ -18,6 +18,7 @@
 <!-- css -->
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/style.css">
   <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
+  <?php echo smiley_js(); ?>
 </head>
 <body>
   <div id="content">
@@ -42,11 +43,11 @@
       <div id="menu">
         <nav>
           <ul>
-            <li><a href="<?php echo site_url('news'); ?>">Inicio</a></li>
-            <li><a href="<?php echo site_url('news/allNews'); ?>">Todos los artículos</a></li>
+            <li><a href="<?php echo site_url('news'); ?>">Inicio</a></li>|
+            <li><a href="<?php echo site_url('news/allNews'); ?>">Todos los artículos</a></li>|
             <?php
             if (isset($this->session->log) && $this->session->log == 'ok') {
-              echo '<li><a href="' . site_url('news/create') . '">Publicar artículo</a></li>';
+              echo '<li><a href="' . site_url('news/create') . '">Publicar artículo</a></li>|';
             }
             ?>
             <li>
@@ -56,7 +57,7 @@
                 echo '">Logout</a>';
               } else {
                 echo '<a href="' . site_url('news/login');
-                echo '">Login</a></li>
+                echo '">Login</a></li>|
                 <li><a href="' . site_url('news/register');
                 echo '">Registrarse</a>';
               }
