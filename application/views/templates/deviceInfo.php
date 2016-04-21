@@ -36,3 +36,29 @@ use ScientiaMobile\WurflCloud\Client;
   }
   ?>
 </div>
+<div>
+  <?php
+if ($this->agent->is_browser())
+{
+  $agent = $this->agent->browser().' '.$this->agent->version();
+}
+elseif ($this->agent->is_robot())
+{
+  $agent = $this->agent->robot();
+}
+elseif ($this->agent->is_mobile())
+{
+  $agent = $this->agent->mobile();
+}
+else
+{
+  $agent = 'Unidentified User Agent';
+}
+
+echo $agent.'*/*';
+
+echo $this->agent->platform().'*/*';
+echo $this->agent->agent_string();
+
+?>
+</div>
